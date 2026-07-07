@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guilherme Caselani — Navegue pela minha vida e trabalho</title>
+<meta name="description" content="Generalista entre marketing, design, estratégia e negócios. De Porto Alegre a Madrid — MA em Creativity and Design Leadership pela ELISAVA.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23FF3EB5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;1,9..144,340;1,9..144,480&family=Archivo:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --ink:#111110;
+    --green:#00E651;
+    --pink:#FF3EB5;
+    --gray:#8A8A85;
+    --line:#EAEAE6;
+    --island:#FCFCFA;
+    --island-line:#111110;
+    --contour:#D8D8D2;
+    --sea-dot:#E3E3DE;
+    --pop-shadow:0 12px 32px rgba(17,17,16,.10);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Archivo',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    --max:680px;
+  }
+  [data-theme="dark"]{
+    --bg:#141413;
+    --ink:#F4F4EF;
+    --gray:#9C9C94;
+    --line:#2B2B28;
+    --island:#1D1D1B;
+    --island-line:#F4F4EF;
+    --contour:#33332F;
+    --sea-dot:#242422;
+    --pop-shadow:0 12px 32px rgba(0,0,0,.5);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  html{color-scheme:light}
+  html[data-theme="dark"]{color-scheme:dark}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:var(--sans);font-size:16.5px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    min-height:100svh;display:flex;flex-direction:column;
+    transition:background .25s ease,color .25s ease;
+  }
+  ::selection{background:var(--pink);color:#fff}
+
+  /* ============ INTRO ============ */
+  #intro{
+    position:fixed;inset:0;z-index:200;
+    background:var(--bg);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:24px;gap:16px;
+    transition:opacity .6s ease;
+  }
+  #intro.gone{opacity:0;pointer-events:none}
+  #intro h2{
+    font-family:var(--mono);font-weight:400;font-size:13px;
+    letter-spacing:.3em;text-transform:uppercase;color:var(--gray);
+  }
+  #intro h1{
+    font-family:var(--serif);font-weight:480;
+    font-size:clamp(38px,7vw,72px);line-height:1.15;letter-spacing:-.015em;
+    max-width:16ch;text-wrap:balance;min-height:2.3em;
+    display:flex;align-items:center;justify-content:center;
+  }
+  #intro h1 span{transition:opacity .4s ease}
+  #intro h1.swap span{opacity:0}
+  #intro .start-wrap{margin-top:6px;display:flex;flex-direction:column;align-items:center;gap:18px}
+  #startBtn{
+    font-family:var(--mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+    background:var(--ink);color:var(--bg);border:none;cursor:pointer;
+    padding:13px 34px;border-radius:99px;min-width:180px;
+    transition:background .18s,transform .18s;
+  }
+  #startBtn:hover{background:var(--pink);transform:translateY(-2px)}
+  .intro-lang{display:flex;gap:4px;font-family:var(--mono);font-size:12px}
+  .intro-lang button{
+    background:none;border:1px solid var(--line);cursor:pointer;font:inherit;
+    color:var(--gray);padding:5px 12px;border-radius:99px;transition:all .15s;
+  }
+  .intro-lang button:hover{color:var(--ink);border-color:var(--gray)}
+  .intro-lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+  /* ============ NAV ============ */
+  nav{border-bottom:1px solid var(--ink);background:var(--bg);position:relative;z-index:60}
+  .nav-inner{
+    max-width:1200px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .nav-left{display:flex;align-items:center;gap:14px;min-width:0}
+  .dots{flex-shrink:0}
+  .brand-group{display:flex;align-items:baseline;gap:14px;min-width:0}
+  .brand{
+    font-family:var(--serif);font-weight:480;
+    font-size:19px;color:var(--ink);text-decoration:none;white-space:nowrap;
+    background:none;border:none;cursor:pointer;line-height:1.2;padding:0;
+    display:inline-block;
+  }
+  .tagline{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--gray);white-space:nowrap;line-height:1.2;
+  }
+  .nav-right{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .cv-btn{
+    font-size:13.5px;color:var(--bg);background:var(--ink);
+    padding:7px 16px;border-radius:99px;
+    transition:background .15s;border:none;cursor:pointer;font-family:var(--sans);
+  }
+  .cv-btn:hover{background:var(--pink)}
+  .lang{display:flex;gap:2px;font-family:var(--mono);font-size:12px}
+  .lang button{
+    background:none;border:none;cursor:pointer;font:inherit;
+    color:var(--gray);padding:3px 7px;border-radius:99px;
+  }
+  .lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+  .theme-btn{
+    background:none;border:1px solid var(--line);cursor:pointer;
+    color:var(--ink);font-size:13px;line-height:1;
+    width:30px;height:30px;border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;
+  }
+  .theme-btn:hover{border-color:var(--pink)}
+  a:focus-visible,button:focus-visible{
+    outline:2px solid var(--pink);outline-offset:3px;border-radius:99px;
+  }
+
+  .dots{
+    background:none;border:none;cursor:pointer;
+    display:flex;flex-direction:column;gap:4px;
+    padding:8px 6px;border-radius:8px;
+  }
+  .dots span{width:5px;height:5px;border-radius:50%;background:var(--gray);transition:background .18s}
+  .dots:hover span{background:var(--pink)}
+  #menuPanel{
+    position:absolute;top:calc(100% + 8px);left:24px;
+    background:var(--bg);border:1px solid var(--ink);border-radius:12px;
+    box-shadow:var(--pop-shadow);padding:10px 8px;min-width:190px;
+    opacity:0;pointer-events:none;transform:translateY(-6px);
+    transition:opacity .18s ease,transform .18s ease;
+  }
+  #menuPanel.open{opacity:1;pointer-events:auto;transform:none}
+  #menuPanel a{
+    display:block;padding:9px 14px;border-radius:8px;
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;
+  }
+  #menuPanel a:hover{background:var(--line);color:var(--pink)}
+
+  /* ============ VIEWS ============ */
+  .view{display:none;flex:1;flex-direction:column}
+  .view.visible{display:flex}
+
+  /* ============ MAPA ============ */
+  .sea{
+    flex:1;position:relative;overflow:hidden;
+    background-image:radial-gradient(var(--sea-dot) 1px, transparent 1px);
+    background-size:26px 26px;
+    transition:background .25s ease;
+  }
+  .sea svg{display:block;width:100%;height:100%;min-height:540px}
+  /* barco-cursor: esconde cursor no mar (desktop com mouse) */
+  @media (hover:hover) and (pointer:fine){
+    .sea.boat-cursor{cursor:none}
+    /* sobre as ilhas o cursor vira a bolinha rosa (o barco some) */
+    .sea.boat-cursor .island{
+      cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22'><circle cx='11' cy='11' r='7' fill='%23FF3EB5'/></svg>") 11 11, pointer;
+    }
+  }
+  .boat.hidden{opacity:0}
+  /* o barco é decorativo: nunca captura o mouse (corrige o pisca-pisca sobre as ilhas) */
+  .boat{pointer-events:none}
+
+  .island{
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22'><circle cx='11' cy='11' r='7' fill='%23FF3EB5'/></svg>") 11 11, pointer;
+    transition:transform .25s ease;outline:none;
+    transform-box:fill-box;transform-origin:50% 50%;
+  }
+  .island .land{
+    fill:var(--island);stroke:var(--island-line);stroke-width:1.5;
+    transition:stroke .2s,stroke-width .2s;
+  }
+  .island .cont{fill:none;stroke:var(--contour);stroke-width:1;transition:stroke .2s}
+  .island text{
+    font-family:var(--mono);font-size:13px;letter-spacing:.35em;
+    fill:var(--ink);text-transform:uppercase;transition:fill .2s;
+  }
+  .island text.small{font-size:10px;letter-spacing:.14em;fill:var(--gray)}
+  .island:hover,.island:focus-visible{transform:translateY(-5px)}
+  .island:hover .land,.island:focus-visible .land{stroke:var(--pink);stroke-width:2}
+  .island:hover text,.island:focus-visible text{fill:var(--pink)}
+  .island:hover text.small,.island:focus-visible text.small{fill:var(--pink)}
+  .island.clicked{animation:bump .38s ease}
+  @keyframes bump{
+    0%{transform:translateY(-5px) scale(1)}
+    45%{transform:translateY(-8px) scale(1.045)}
+    100%{transform:translateY(-5px) scale(1)}
+  }
+
+  .mark line,.mark path{stroke:var(--pink)}
+  .mark .fillpink{fill:var(--pink)}
+  .mark .nostroke{stroke:none}
+  .bridge line{stroke:var(--pink);stroke-width:2.5}
+  .bridge .rail{stroke-width:1.2}
+  .waves path{stroke:var(--contour);fill:none;stroke-width:1.2;stroke-linecap:round}
+  .region{
+    font-family:var(--mono);font-size:13px;letter-spacing:.35em;
+    fill:var(--ink);text-transform:uppercase;
+  }
+  .compass text{font-family:var(--mono);font-size:11px;letter-spacing:.2em;fill:var(--gray)}
+  .compass line,.compass circle{stroke:var(--gray);fill:none}
+
+  .lh-glow{animation:pulse 2.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:.9}}
+  .lh-beams{opacity:.18;transform-box:fill-box;transform-origin:50% 12%;transition:opacity .3s}
+  .island:hover .lh-beams,.island:focus-visible .lh-beams{opacity:1;animation:sweep 3.4s ease-in-out infinite alternate}
+  @keyframes sweep{from{transform:rotate(-10deg)}to{transform:rotate(10deg)}}
+
+  .boat .sail{fill:var(--pink)}
+  .boat .hull{fill:var(--ink)}
+  .boat .mast{stroke:var(--ink)}
+  .boat.idle .boatInner{animation:bob 3.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-4px) rotate(1.5deg)}}
+
+  /* ============ PÁGINAS ============ */
+  main{max-width:var(--max);margin:0 auto;padding:0 24px;width:100%}
+  .page-sec{padding:56px 0 0}
+  .page-sec:last-of-type{padding-bottom:104px}
+  .back{
+    display:inline-block;margin-top:32px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  }
+  .sec-title{
+    font-family:var(--serif);font-weight:480;letter-spacing:-.02em;
+    font-size:clamp(38px,7vw,56px);line-height:1.02;text-wrap:balance;margin-top:18px;
+  }
+  .page-lead{font-size:19px;max-width:60ch;margin-top:24px}
+  .page-lead a,.prose a{color:var(--ink)}
+
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink);margin-bottom:26px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::after{content:"";height:1px;background:var(--line);flex:1}
+
+  .timeline{list-style:none}
+  .timeline li{
+    padding:13px 0;border-bottom:1px solid var(--line);
+    display:grid;grid-template-columns:92px 1fr;gap:16px;align-items:baseline;
+  }
+  .timeline li:last-child{border-bottom:none}
+  .timeline .yr{font-family:var(--mono);font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums}
+  .timeline .role{font-size:15.5px}
+  .timeline .org{color:var(--gray)}
+  .clients{margin-top:26px;font-size:15px;color:var(--gray)}
+  .clients strong{color:var(--ink);font-weight:500}
+
+  .biglist{list-style:none;counter-reset:pow}
+  .biglist li{
+    padding:18px 0;border-bottom:1px solid var(--line);
+    font-family:var(--serif);font-weight:480;
+    font-size:clamp(20px,3vw,25px);letter-spacing:-.01em;line-height:1.35;
+    display:flex;gap:18px;align-items:baseline;text-wrap:balance;
+  }
+  .biglist li::before{
+    counter-increment:pow;content:counter(pow,decimal-leading-zero);
+    font-family:var(--mono);font-size:12px;color:var(--pink);font-variant-numeric:tabular-nums;
+  }
+  .biglist li:last-child{border-bottom:none}
+  .smalllist{list-style:none}
+  .smalllist li{padding:10px 0;font-size:17px;display:flex;gap:12px;align-items:baseline}
+  .smalllist li::before{content:"↳";color:var(--pink)}
+
+  .photo-intro{max-width:58ch;margin-bottom:14px;font-size:19px}
+  .photo-note{font-size:14px;color:var(--gray);font-style:italic;margin-bottom:44px}
+  .series{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:640px){.series{grid-template-columns:1fr}}
+  .serie .ph{
+    aspect-ratio:4/5;border:1px solid var(--ink);
+    background:linear-gradient(165deg,var(--island) 0%,var(--line) 100%);
+    display:flex;align-items:center;justify-content:center;
+    transition:box-shadow .2s ease,transform .2s ease;
+  }
+  .serie:hover .ph{box-shadow:0 10px 30px rgba(255,62,181,.18);transform:translateY(-3px)}
+  .serie .ph span{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
+  .serie h3{font-family:var(--serif);font-weight:480;font-size:19px;margin-top:14px}
+  .serie p{font-size:14px;color:var(--gray)}
+
+  .cur-block{margin-bottom:52px}
+  .cur-block:first-of-type{margin-top:44px}
+  .cur-block h2{font-family:var(--serif);font-weight:480;font-size:27px;margin-bottom:4px}
+  .cur-block .sub{color:var(--gray);font-size:15px;margin-bottom:18px;font-style:italic}
+  .cur-list{list-style:none}
+  .cur-list li{
+    padding:14px 0;border-bottom:1px solid var(--line);
+    display:flex;justify-content:space-between;gap:16px;align-items:baseline;font-size:16px;
+  }
+  .cur-list li:last-child{border-bottom:none}
+  .cur-list .meta{display:flex;flex-direction:column;gap:2px}
+  .cur-list .meta em{font-style:italic;color:var(--gray);font-size:13.5px}
+  .cur-list .tag{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+    white-space:nowrap;color:var(--gray);text-transform:uppercase;
+  }
+
+  footer{border-top:1px solid var(--ink);background:var(--bg)}
+  .foot-inner{
+    max-width:1200px;margin:0 auto;padding:26px 24px 34px;
+    display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  }
+  .foot-inner h2{font-family:var(--serif);font-weight:480;font-size:22px;margin-bottom:4px}
+  .foot-inner p{font-size:14.5px;color:var(--gray)}
+  .glink{
+    color:var(--ink);text-decoration:none;
+    background:linear-gradient(0deg,var(--green),var(--green)) no-repeat left bottom;
+    background-size:100% 5px;transition:background-size .18s ease;padding-bottom:1px;
+    border:none;cursor:pointer;font:inherit;
+  }
+  .glink:hover{background-size:100% 96%;color:#111110}
+
+  #pop{
+    position:fixed;z-index:150;max-width:300px;
+    background:var(--bg);border:1px solid var(--ink);border-radius:10px;
+    box-shadow:var(--pop-shadow);padding:14px 16px;
+    font-size:13.5px;line-height:1.55;
+    opacity:0;pointer-events:none;transform:translateY(5px);
+    transition:opacity .16s ease,transform .16s ease;
+  }
+  #pop.show{opacity:1;transform:none;pointer-events:auto}
+  #pop .pop-title{
+    font-family:var(--serif);font-weight:480;font-size:15px;margin-bottom:4px;color:var(--ink);
+  }
+  #pop.wide{max-width:380px}
+  #pop .glink{white-space:nowrap;font-weight:500}
+
+  #toast{
+    position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(12px);
+    background:var(--ink);color:var(--bg);
+    font-size:13.5px;padding:10px 18px;border-radius:99px;
+    opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;
+    max-width:88vw;text-align:center;z-index:160;
+  }
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:820px){.tagline{display:none}}
+
+  /* ============ MAPA RESPONSIVO ============ */
+  .map-mobile{display:none}
+  @media(max-width:700px){
+    body{font-size:17.5px}
+    .map-desktop{display:none}
+    .map-mobile{display:block}
+    .map-mobile svg{width:100%;height:auto;display:block;min-height:0}
+    #pop{font-size:14.5px;max-width:320px}
+    #pop.wide{max-width:92vw}
+  }
+  /* fontes maiores no mapa mobile */
+  .map-mobile .island text{font-size:20px;letter-spacing:.3em}
+  .map-mobile .island text.small{font-size:14px;letter-spacing:.1em}
+  .map-mobile .region{font-size:20px;letter-spacing:.3em}
+  .map-mobile .compass text{font-size:13px}
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <h2>Guilherme Caselani</h2>
+  <h1 id="introTitle"><span>Navegue pela minha vida e trabalho</span></h1>
+  <div class="start-wrap">
+    <button id="startBtn">Começar</button>
+    <div class="intro-lang" role="group" aria-label="Idioma">
+      <button data-lang="pt" aria-pressed="false">PT</button>
+      <button data-lang="en" aria-pressed="false">EN</button>
+      <button data-lang="es" aria-pressed="false">ES</button>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <button class="dots" id="menuBtn" aria-label="Menu de páginas" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="brand-group">
+        <button class="brand" data-goto="map">Guilherme Caselani</button>
+        <span class="tagline">Navegue pela minha vida e trabalho</span>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Idioma">
+        <button data-lang="pt" aria-pressed="true">PT</button>
+        <button data-lang="en" aria-pressed="false">EN</button>
+        <button data-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <button class="theme-btn" id="themeBtn" aria-label="Alternar tema claro/escuro">◐</button>
+      <button class="cv-btn" id="cvBtn">Ver CV</button>
+    </div>
+  </div>
+  <div id="menuPanel">
+    <a href="#" data-goto="map">Mapa</a>
+    <a href="#" data-goto="sobre">Sobre</a>
+    <a href="#" data-goto="trabalho">Trabalho</a>
+    <a href="#" data-goto="fotografia" data-wip="1">Fotografia ✦</a>
+    <a href="#" data-goto="recomendacoes">Recomendações</a>
+  </div>
+</nav>
+
+<!-- ============ VIEW: MAPA ============ -->
+<div class="view visible" id="view-map">
+<div class="sea map-desktop" id="sea">
+<svg viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid meet" id="mapSvg" aria-label="Mapa: um arquipélago onde cada ilha é uma parte da vida e trabalho de Guilherme">
+
+  <defs>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <g class="waves" aria-hidden="true">
+    <path d="M180,500 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M660,170 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M1290,200 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M240,720 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M1340,720 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M960,110 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M80,290 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M900,560 q10,-8 20,0 q10,8 20,0"/>
+  </g>
+
+  <g class="compass" transform="translate(1360,80)" aria-hidden="true">
+    <circle r="26"/>
+    <line x1="0" y1="-26" x2="0" y2="26"/>
+    <line x1="-26" y1="0" x2="26" y2="0"/>
+    <text x="0" y="-36" text-anchor="middle">N</text>
+  </g>
+
+  <text class="region" x="435" y="128" text-anchor="middle" aria-hidden="true">Formação</text>
+
+  <!-- Graduação (ESPM) -->
+  <g class="island" id="isl-ba" data-key="graduacao" tabindex="0" role="button"
+     aria-label="Graduação — ESPM, Porto Alegre"
+     data-dock="470,345"
+     data-popup-title="Graduação"
+     data-popup-info="ESPM, Porto Alegre (2019–2023). GPA 8.9, shortlist no Effie Awards.">
+    <path class="land" d="M300,260 C280,235 300,195 340,190 C375,185 405,200 410,230 C415,262 395,290 360,295 C328,300 315,283 300,260 Z"/>
+    <path class="cont" d="M322,255 C310,238 322,212 348,209 C371,206 389,217 392,236 C395,257 381,274 358,277 C338,280 331,268 322,255 Z"/>
+    <g class="mark" aria-hidden="true">
+      <line x1="352" y1="240" x2="352" y2="214" stroke-width="1.6"/>
+      <path class="fillpink nostroke" d="M352,214 L370,219 L352,225 Z"/>
+    </g>
+    <text class="small" x="355" y="328" text-anchor="middle">Graduação</text>
+      <text class="small" x="355" y="343" text-anchor="middle" style="font-size:9px;letter-spacing:.09em;opacity:.8">Publicidade e Propaganda</text>
+  </g>
+
+  <!-- Mestrado (ELISAVA) -->
+  <g class="island" id="isl-ma" data-key="mestrado" tabindex="0" role="button"
+     aria-label="Mestrado — ELISAVA, Madrid"
+     data-dock="470,345"
+     data-popup-title="Mestrado"
+     data-popup-info="ELISAVA, Madrid (2025–2026). Liderança adaptativa, design e culturas criativas.">
+    <path class="land" d="M475,235 C460,205 480,170 520,168 C558,166 585,185 585,218 C585,250 560,272 525,270 C495,268 486,257 475,235 Z"/>
+    <path class="cont" d="M494,232 C485,212 498,190 524,189 C548,188 566,200 566,220 C566,241 549,255 526,253 C506,252 500,246 494,232 Z"/>
+    <g class="mark" aria-hidden="true">
+      <line x1="528" y1="222" x2="528" y2="196" stroke-width="1.6"/>
+      <path class="fillpink nostroke" d="M528,196 L546,201 L528,207 Z"/>
+    </g>
+    <text class="small" x="530" y="303" text-anchor="middle">Mestrado</text>
+      <text class="small" x="530" y="316" text-anchor="middle" style="font-size:9px;letter-spacing:.07em;opacity:.8">Creativity &amp; Design Leadership</text>
+  </g>
+
+  <g class="bridge" aria-hidden="true">
+    <line x1="410" y1="240" x2="477" y2="222"/>
+    <line class="rail" x1="410" y1="233" x2="477" y2="215"/>
+    <line class="rail" x1="425" y1="236" x2="425" y2="222"/>
+    <line class="rail" x1="443" y1="231" x2="443" y2="218"/>
+    <line class="rail" x1="461" y1="227" x2="461" y2="213"/>
+  </g>
+
+  <!-- Trabalho -->
+  <g class="island" id="isl-work" data-key="trabalho" tabindex="0" role="button"
+     aria-label="Trabalho — trajetória e superpoderes"
+     data-dock="640,490" data-popup-wide="1"
+     data-popup-title="Trabalho"
+     data-popup-info="99/Didi, Mondelez Trident, Haleon, Tecban, O Boticário e Renner."
+     data-popup-link="Ver detalhes →" data-popup-goto="trabalho">
+    <path class="land" d="M700,420 C670,390 680,340 730,325 C775,312 830,318 870,340 C912,363 925,405 905,445 C885,485 835,505 785,498 C740,492 725,448 700,420 Z"/>
+    <path class="cont" d="M730,418 C708,396 716,360 753,349 C787,339 828,343 858,360 C889,377 899,408 884,438 C869,468 831,482 794,477 C760,472 749,439 730,418 Z"/>
+    <path class="cont" d="M760,415 C746,401 751,378 775,371 C797,365 823,367 842,378 C862,389 868,409 858,428 C848,447 823,456 799,453 C777,450 772,428 760,415 Z"/>
+    <g class="mark" aria-hidden="true">
+      <path d="M775,432 L800,385 L825,432 Z" fill="var(--island)" stroke="var(--island-line)" stroke-width="1.5"/>
+      <path d="M791,402 L800,385 L809,402 L804,398 L800,403 L796,398 Z" fill="var(--island-line)" stroke="none" opacity=".85"/>
+      <line x1="800" y1="385" x2="800" y2="366" stroke-width="1.6"/>
+      <path class="fillpink nostroke" d="M800,366 L818,371 L800,377 Z"/>
+    </g>
+    <text x="795" y="285" text-anchor="middle">Trabalho</text>
+  </g>
+
+  <!-- Sobre -->
+  <g class="island" id="isl-about" data-key="sobre" tabindex="0" role="button"
+     aria-label="Sobre — quem sou"
+     data-dock="560,645" data-popup-wide="1"
+     data-popup-title="Oi! Sou o Gui."
+     data-popup-html="&lt;p&gt;Nasci e cresci no interior do Brasil e atualmente vivo em Madrid. Eu estou entre o marketing, o design, a estratégia e os negócios. Acredito que há um futuro melhor através da colaboração, lateralidade, transparência, diversidade e, claro, da comunicação.&lt;/p&gt;&lt;p style='margin-top:8px'&gt;&lt;strong&gt;Meu trabalho é aplicar isso construindo, criando e gerindo projetos e equipes.&lt;/strong&gt;&lt;/p&gt;&lt;p style='margin-top:8px'&gt;&lt;em&gt;Depois das 6, me encontre lendo em um parque, escutando música com meus amigos ou fotografando na rua.&lt;/em&gt;&lt;/p&gt;">
+    <path class="land" d="M320,610 C300,580 320,545 365,538 C405,532 465,540 505,558 C545,576 555,608 530,632 C505,656 445,662 395,652 C355,644 335,633 320,610 Z"/>
+    <path class="cont" d="M348,606 C334,585 348,560 382,555 C412,551 458,557 488,570 C518,583 525,606 507,624 C489,642 444,647 406,639 C376,633 359,623 348,606 Z"/>
+    <g class="mark" aria-hidden="true">
+      <circle class="fillpink nostroke" cx="427" cy="583" r="5.5"/>
+      <path class="fillpink nostroke" d="M427,590 C420,590 416,595 416,603 L421,603 L421,612 L433,612 L433,603 L438,603 C438,595 434,590 427,590 Z"/>
+    </g>
+    <text x="430" y="700" text-anchor="middle">Sobre</text>
+  </g>
+
+  <!-- Fotografia -->
+  <g class="island" id="isl-foto" data-key="fotografia" tabindex="0" role="button"
+     aria-label="Fotografia — meu hobby e paixão"
+     data-dock="1000,350"
+     data-popup-title="Fotografia"
+     data-popup-info="Meu hobby mais sério. Página em construção 📷">
+    <path class="land" d="M1040,290 C1020,255 1045,220 1090,215 C1130,210 1175,225 1190,255 C1206,287 1190,320 1150,330 C1112,340 1060,325 1040,290 Z"/>
+    <path class="cont" d="M1062,285 C1048,260 1066,235 1098,231 C1127,228 1159,239 1170,260 C1181,283 1170,306 1141,313 C1113,320 1076,310 1062,285 Z"/>
+    <g class="mark" aria-hidden="true">
+      <line x1="1115" y1="278" x2="1115" y2="258" stroke-width="1.6"/>
+      <circle class="fillpink nostroke" cx="1115" cy="252" r="6.5"/>
+      <circle cx="1115" cy="252" r="2.2" fill="var(--bg)" stroke="none"/>
+    </g>
+    <text x="1115" y="185" text-anchor="middle">Fotografia</text>
+  </g>
+
+  <!-- Farol (sem nome) -->
+  <g class="island" id="isl-rec" data-key="recomendacoes" tabindex="0" role="button"
+     aria-label="O farol — leituras, músicas e coisas que curto"
+     data-dock="1055,615"
+     data-popup-title="Recomendações"
+     data-popup-info="Conheça leituras, músicas e coisas que curto muito."
+     data-popup-link="Visitar →" data-popup-goto="recomendacoes">
+    <g class="lh-beams" aria-hidden="true">
+      <path d="M1150,512 L1330,455 L1330,505 Z" fill="var(--green)" opacity=".5" filter="url(#soft)"/>
+      <path d="M1150,512 L970,455 L970,505 Z" fill="var(--green)" opacity=".32" filter="url(#soft)"/>
+      <path d="M1150,512 L1300,468 L1300,498 Z" fill="var(--green)" opacity=".75"/>
+    </g>
+    <circle class="lh-glow" cx="1150" cy="512" r="16" fill="var(--green)" filter="url(#soft)" aria-hidden="true"/>
+    <path class="land" d="M1118,585 C1113,566 1129,553 1150,553 C1171,553 1187,566 1182,585 C1178,600 1122,600 1118,585 Z"/>
+    <path class="land" d="M1139,556 L1143,514 L1157,514 L1161,556 Z"/>
+    <line x1="1140" y1="543" x2="1160" y2="543" stroke="var(--island-line)" stroke-width="1.5"/>
+    <line x1="1141" y1="530" x2="1159" y2="530" stroke="var(--island-line)" stroke-width="1.5"/>
+    <rect x="1143" y="504" width="14" height="10" fill="var(--island)" stroke="var(--island-line)" stroke-width="1.5"/>
+    <circle cx="1150" cy="509" r="3" fill="var(--pink)"/>
+  </g>
+
+  <!-- Barco -->
+  <g id="boat" class="boat idle" aria-hidden="true">
+    <g class="boatInner">
+      <line class="mast" x1="0" y1="-34" x2="0" y2="0" stroke-width="2"/>
+      <path class="sail" d="M2,-32 C16,-24 20,-12 18,-2 L2,-2 Z"/>
+      <path class="sail" d="M-2,-26 C-12,-20 -15,-10 -13,-2 L-2,-2 Z" opacity=".75"/>
+      <path class="hull" d="M-20,2 L20,2 L12,12 L-12,12 Z"/>
+    </g>
+  </g>
+
+</svg>
+</div>
+
+<!-- ============ MAPA MOBILE (scroll vertical) ============ -->
+<div class="sea map-mobile">
+<svg viewBox="0 0 480 1780" preserveAspectRatio="xMidYMid meet" aria-label="Mapa em scroll: um arquipélago onde cada ilha é uma parte da vida e trabalho de Guilherme">
+
+  <defs>
+    <filter id="softm" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <g class="waves" aria-hidden="true">
+    <path d="M60,430 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M380,560 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M70,880 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M395,1160 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M60,1520 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M385,1720 q10,-8 20,0 q10,8 20,0"/>
+  </g>
+
+  <g class="compass" transform="translate(412,92)" aria-hidden="true">
+    <circle r="22"/>
+    <line x1="0" y1="-22" x2="0" y2="22"/>
+    <line x1="-22" y1="0" x2="22" y2="0"/>
+    <text x="0" y="-32" text-anchor="middle">N</text>
+  </g>
+
+  <text class="region" x="150" y="118" text-anchor="middle" aria-hidden="true">Formação</text>
+
+  <!-- Formação: mesmo cluster do desktop, transformado -->
+  <g transform="translate(-256.8,-6) scale(1.15)">
+    <g class="island" data-key="graduacao" tabindex="0" role="button"
+       aria-label="Graduação — ESPM, Porto Alegre"
+       data-popup-title="Graduação"
+       data-popup-info="ESPM, Porto Alegre (2019–2023). GPA 8.9, shortlist no Effie Awards.">
+      <path class="land" d="M300,260 C280,235 300,195 340,190 C375,185 405,200 410,230 C415,262 395,290 360,295 C328,300 315,283 300,260 Z"/>
+      <path class="cont" d="M322,255 C310,238 322,212 348,209 C371,206 389,217 392,236 C395,257 381,274 358,277 C338,280 331,268 322,255 Z"/>
+      <g class="mark" aria-hidden="true">
+        <line x1="352" y1="240" x2="352" y2="214" stroke-width="1.6"/>
+        <path class="fillpink nostroke" d="M352,214 L370,219 L352,225 Z"/>
+      </g>
+      <text class="small" x="355" y="330" text-anchor="middle">Graduação</text>
+      <text class="small" x="355" y="346" text-anchor="middle" style="font-size:9px;letter-spacing:.09em;opacity:.8">Publicidade e Propaganda</text>
+    </g>
+    <g class="island" data-key="mestrado" tabindex="0" role="button"
+       aria-label="Mestrado — ELISAVA, Madrid"
+       data-popup-title="Mestrado"
+       data-popup-info="ELISAVA, Madrid (2025–2026). Liderança adaptativa, design e culturas criativas.">
+      <path class="land" d="M475,235 C460,205 480,170 520,168 C558,166 585,185 585,218 C585,250 560,272 525,270 C495,268 486,257 475,235 Z"/>
+      <path class="cont" d="M494,232 C485,212 498,190 524,189 C548,188 566,200 566,220 C566,241 549,255 526,253 C506,252 500,246 494,232 Z"/>
+      <g class="mark" aria-hidden="true">
+        <line x1="528" y1="222" x2="528" y2="196" stroke-width="1.6"/>
+        <path class="fillpink nostroke" d="M528,196 L546,201 L528,207 Z"/>
+      </g>
+      <text class="small" x="530" y="303" text-anchor="middle">Mestrado</text>
+      <text class="small" x="530" y="316" text-anchor="middle" style="font-size:9px;letter-spacing:.07em;opacity:.8">Creativity &amp; Design Leadership</text>
+    </g>
+    <g class="bridge" aria-hidden="true">
+      <line x1="410" y1="240" x2="477" y2="222"/>
+      <line class="rail" x1="410" y1="233" x2="477" y2="215"/>
+      <line class="rail" x1="425" y1="236" x2="425" y2="222"/>
+      <line class="rail" x1="443" y1="231" x2="443" y2="218"/>
+      <line class="rail" x1="461" y1="227" x2="461" y2="213"/>
+    </g>
+  </g>
+
+  <!-- barquinho decorativo -->
+  <g class="boat idle" transform="translate(88,470)" aria-hidden="true">
+    <g class="boatInner">
+      <line class="mast" x1="0" y1="-34" x2="0" y2="0" stroke-width="2"/>
+      <path class="sail" d="M2,-32 C16,-24 20,-12 18,-2 L2,-2 Z"/>
+      <path class="sail" d="M-2,-26 C-12,-20 -15,-10 -13,-2 L-2,-2 Z" opacity=".75"/>
+      <path class="hull" d="M-20,2 L20,2 L12,12 L-12,12 Z"/>
+    </g>
+  </g>
+
+  <!-- Trabalho -->
+  <g transform="translate(-716.4,170) scale(1.2)">
+    <g class="island" data-key="trabalho" tabindex="0" role="button"
+       aria-label="Trabalho — trajetória e superpoderes"
+       data-popup-wide="1"
+       data-popup-title="Trabalho"
+       data-popup-info="99/Didi, Mondelez Trident, Haleon, Tecban, O Boticário e Renner."
+       data-popup-link="Ver detalhes →" data-popup-goto="trabalho">
+      <path class="land" d="M700,420 C670,390 680,340 730,325 C775,312 830,318 870,340 C912,363 925,405 905,445 C885,485 835,505 785,498 C740,492 725,448 700,420 Z"/>
+      <path class="cont" d="M730,418 C708,396 716,360 753,349 C787,339 828,343 858,360 C889,377 899,408 884,438 C869,468 831,482 794,477 C760,472 749,439 730,418 Z"/>
+      <path class="cont" d="M760,415 C746,401 751,378 775,371 C797,365 823,367 842,378 C862,389 868,409 858,428 C848,447 823,456 799,453 C777,450 772,428 760,415 Z"/>
+      <g class="mark" aria-hidden="true">
+        <path d="M775,432 L800,385 L825,432 Z" fill="var(--island)" stroke="var(--island-line)" stroke-width="1.5"/>
+        <path d="M791,402 L800,385 L809,402 L804,398 L800,403 L796,398 Z" fill="var(--island-line)" stroke="none" opacity=".85"/>
+        <line x1="800" y1="385" x2="800" y2="366" stroke-width="1.6"/>
+        <path class="fillpink nostroke" d="M800,366 L818,371 L800,377 Z"/>
+      </g>
+      <text x="795" y="290" text-anchor="middle">Trabalho</text>
+    </g>
+  </g>
+
+  <!-- Sobre -->
+  <g transform="translate(-297.5,241.25) scale(1.25)">
+    <g class="island" data-key="sobre" tabindex="0" role="button"
+       aria-label="Sobre — quem sou"
+       data-popup-wide="1"
+       data-popup-title="Oi! Sou o Gui."
+       data-popup-html="&lt;p&gt;Nasci e cresci no interior do Brasil e atualmente vivo em Madrid. Eu estou entre o marketing, o design, a estratégia e os negócios. Acredito que há um futuro melhor através da colaboração, lateralidade, transparência, diversidade e, claro, da comunicação.&lt;/p&gt;&lt;p style='margin-top:8px'&gt;&lt;strong&gt;Meu trabalho é aplicar isso construindo, criando e gerindo projetos e equipes.&lt;/strong&gt;&lt;/p&gt;&lt;p style='margin-top:8px'&gt;&lt;em&gt;Depois das 6, me encontre lendo em um parque, escutando música com meus amigos ou fotografando na rua.&lt;/em&gt;&lt;/p&gt;">
+      <path class="land" d="M320,610 C300,580 320,545 365,538 C405,532 465,540 505,558 C545,576 555,608 530,632 C505,656 445,662 395,652 C355,644 335,633 320,610 Z"/>
+      <path class="cont" d="M348,606 C334,585 348,560 382,555 C412,551 458,557 488,570 C518,583 525,606 507,624 C489,642 444,647 406,639 C376,633 359,623 348,606 Z"/>
+      <g class="mark" aria-hidden="true">
+        <circle class="fillpink nostroke" cx="427" cy="583" r="5.5"/>
+        <path class="fillpink nostroke" d="M427,590 C420,590 416,595 416,603 L421,603 L421,612 L433,612 L433,603 L438,603 C438,595 434,590 427,590 Z"/>
+      </g>
+      <text x="430" y="700" text-anchor="middle">Sobre</text>
+    </g>
+  </g>
+
+  <!-- Fotografia -->
+  <g transform="translate(-1209.5,1009.4) scale(1.3)">
+    <g class="island" data-key="fotografia" tabindex="0" role="button"
+       aria-label="Fotografia — meu hobby e paixão"
+       data-popup-title="Fotografia"
+       data-popup-info="Meu hobby mais sério. Página em construção 📷">
+      <path class="land" d="M1040,290 C1020,255 1045,220 1090,215 C1130,210 1175,225 1190,255 C1206,287 1190,320 1150,330 C1112,340 1060,325 1040,290 Z"/>
+      <path class="cont" d="M1062,285 C1048,260 1066,235 1098,231 C1127,228 1159,239 1170,260 C1181,283 1170,306 1141,313 C1113,320 1076,310 1062,285 Z"/>
+      <g class="mark" aria-hidden="true">
+        <line x1="1115" y1="278" x2="1115" y2="258" stroke-width="1.6"/>
+        <circle class="fillpink nostroke" cx="1115" cy="252" r="6.5"/>
+        <circle cx="1115" cy="252" r="2.2" fill="var(--bg)" stroke="none"/>
+      </g>
+      <text x="1115" y="190" text-anchor="middle">Fotografia</text>
+    </g>
+  </g>
+
+  <!-- Farol (sem nome) -->
+  <g transform="translate(-1255,938.5) scale(1.3)">
+    <g class="island" data-key="recomendacoes" tabindex="0" role="button"
+       aria-label="O farol — leituras, músicas e coisas que curto"
+       data-popup-title="Recomendações"
+       data-popup-info="Conheça leituras, músicas e coisas que curto muito."
+       data-popup-link="Visitar →" data-popup-goto="recomendacoes">
+      <g class="lh-beams" aria-hidden="true">
+        <path d="M1150,512 L1330,455 L1330,505 Z" fill="var(--green)" opacity=".5" filter="url(#softm)"/>
+        <path d="M1150,512 L970,455 L970,505 Z" fill="var(--green)" opacity=".32" filter="url(#softm)"/>
+        <path d="M1150,512 L1300,468 L1300,498 Z" fill="var(--green)" opacity=".75"/>
+      </g>
+      <circle class="lh-glow" cx="1150" cy="512" r="16" fill="var(--green)" filter="url(#softm)" aria-hidden="true"/>
+      <path class="land" d="M1118,585 C1113,566 1129,553 1150,553 C1171,553 1187,566 1182,585 C1178,600 1122,600 1118,585 Z"/>
+      <path class="land" d="M1139,556 L1143,514 L1157,514 L1161,556 Z"/>
+      <line x1="1140" y1="543" x2="1160" y2="543" stroke="var(--island-line)" stroke-width="1.5"/>
+      <line x1="1141" y1="530" x2="1159" y2="530" stroke="var(--island-line)" stroke-width="1.5"/>
+      <rect x="1143" y="504" width="14" height="10" fill="var(--island)" stroke="var(--island-line)" stroke-width="1.5"/>
+      <circle cx="1150" cy="509" r="3" fill="var(--pink)"/>
+    </g>
+  </g>
+
+</svg>
+</div>
+</div>
+
+<!-- ============ VIEW: TRABALHO ============ -->
+<div class="view" id="view-trabalho">
+<main>
+  <a href="#" class="glink back" data-goto="map">← Voltar ao mapa</a>
+  <section class="page-sec" style="padding-top:8px">
+    <h1 class="sec-title">Trabalho</h1>
+    <p class="page-lead">Meu lugar favorito é o meio: entre a estratégia e a execução, entre o cliente e o criativo. Hoje, Madrid — recém-formado no <a class="glink" href="https://www.elisava.net/en/masters/master-in-creativity-and-design-leadership/" target="_blank" rel="noopener">MA em Creativity and Design Leadership da ELISAVA</a>.</p>
+  </section>
+  <section class="page-sec">
+    <p class="eyebrow">Trajetória</p>
+    <ul class="timeline">
+      <li><span class="yr">2025–26</span><span class="role">MA Creativity &amp; Design Leadership <span class="org">— ELISAVA, Madrid</span></span></li>
+      <li><span class="yr">2024–25</span><span class="role">Account Manager, Divisão de Influência <span class="org">— EYXO</span></span></li>
+      <li><span class="yr">2022–24</span><span class="role">Account Executive, time dedicado Didi Global <span class="org">— EYXO</span></span></li>
+      <li><span class="yr">2021</span><span class="role">Account Assistant <span class="org">— W3 Haus (O Boticário)</span></span></li>
+      <li><span class="yr">2020–21</span><span class="role">Agile Project Intern <span class="org">— Renner S.A.</span></span></li>
+      <li><span class="yr">2019–20</span><span class="role">ESPM Junior Agency <span class="org">— ESPM, Porto Alegre</span></span></li>
+    </ul>
+    <p class="clients"><strong>Com quem já trabalhei:</strong> 99/Didi · Mondelez Trident · Haleon · Tecban · O Boticário · Renner</p>
+  </section>
+  <section class="page-sec">
+    <p class="eyebrow">Superpoderes</p>
+    <ul class="biglist">
+      <li>Traduzo cliente pra criativo e criativo pra cliente.</li>
+      <li>Amo uma planilha e sei fazer muito bem.</li>
+      <li>Apresento para stakeholder sem medo.</li>
+      <li>Funciono em três idiomas.</li>
+      <li>Lembro bem que atrás do crachá somos todos humanos.</li>
+    </ul>
+  </section>
+  <section class="page-sec">
+    <p class="eyebrow">Ainda aprendendo</p>
+    <ul class="smalllist">
+      <li>Tempos passados no espanhol.</li>
+      <li>Vibe codar esse site.</li>
+      <li>Tirar meu próprio espresso.</li>
+    </ul>
+  </section>
+</main>
+</div>
+
+<!-- ============ VIEW: FOTOGRAFIA ============ -->
+<div class="view" id="view-fotografia">
+<main>
+  <a href="#" class="glink back" data-goto="map">← Voltar ao mapa</a>
+  <section class="page-sec" style="padding-top:8px">
+    <h1 class="sec-title">Fotografia</h1>
+    <p class="photo-intro" style="margin-top:24px">Meu hobby mais sério e minha paixão. Fotografo o que eu amo desde sempre — e tenho prova documental.</p>
+    <p class="photo-note">[aqui entra a foto sua aos 3 anos com câmera na mão — "o estagiário, 199X"]</p>
+    <div class="series">
+      <div class="serie"><div class="ph"><span>em breve</span></div><h3>Casa da minha vó</h3><p>Série · interior do RS</p></div>
+      <div class="serie"><div class="ph"><span>em breve</span></div><h3>Espanha</h3><p>Série · em andamento</p></div>
+      <div class="serie"><div class="ph"><span>em breve</span></div><h3>Espetáculo o que parece ser</h3><p>Série</p></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<!-- ============ VIEW: RECOMENDAÇÕES ============ -->
+<div class="view" id="view-recomendacoes">
+<main>
+  <a href="#" class="glink back" data-goto="map">← Voltar ao mapa</a>
+  <section class="page-sec" style="padding-top:8px">
+    <h1 class="sec-title">Recomendações</h1>
+    <p class="page-lead">Leituras, músicas e coisas que curto muito — e adoro compartilhar.</p>
+
+    <div class="cur-block" style="margin-top:48px">
+      <h2>Música</h2>
+      <p class="sub">Playlists e álbuns em rotação.</p>
+      <ul class="cur-list">
+        <li>
+          <span class="meta"><a class="glink" href="https://open.spotify.com/playlist/4KGudFU3nlxNTvn7kMIbXt" target="_blank" rel="noopener">pra gringo ver</a><em>lista curada para meus amigos não brasileiros conhecerem o melhor de nós</em></span>
+          <span class="tag">playlist</span>
+        </li>
+        <li><span class="meta"><a class="glink" href="https://open.spotify.com/album/23uqrSQB0iXBCRx2Zc8STp" target="_blank" rel="noopener">Behaviour</a><em>Pet Shop Boys</em></span><span class="tag">álbum</span></li>
+        <li><span class="meta"><a class="glink" href="https://open.spotify.com/album/6cuNyrSmRjBeekioLdLkvI" target="_blank" rel="noopener">Ray of Light</a><em>Madonna</em></span><span class="tag">álbum</span></li>
+        <li><span class="meta"><a class="glink" href="https://open.spotify.com/album/77eZ5eMEh3U0KWricrbevO" target="_blank" rel="noopener">B'Day</a><em>Beyoncé</em></span><span class="tag">álbum</span></li>
+        <li><span class="meta"><a class="glink" href="https://open.spotify.com/album/7s4sDqfWp9bbkWgU185WVh" target="_blank" rel="noopener">Um Mar pra Cada Um</a><em>Luedji Luna</em></span><span class="tag">álbum</span></li>
+      </ul>
+    </div>
+
+    <div class="cur-block">
+      <h2>Leituras</h2>
+      <p class="sub">Leituras que eu posso citar depois de 2 taças de vinho.</p>
+      <ul class="cur-list">
+        <li><span class="meta"><a class="glink" href="https://www.goodreads.com/book/show/52372.On_Photography" target="_blank" rel="noopener">On Photography</a><em>Susan Sontag</em></span><span class="tag">livro</span></li>
+        <li><span class="meta"><a class="glink" href="https://b-m-institute.com/wp-content/uploads/2019/11/Planned__Generative_Change.pdf" target="_blank" rel="noopener">Planned and Generative Change in Organization Development</a><em>Robert J. Marshak &amp; Gervase R. Bushe</em></span><span class="tag">ensaio</span></li>
+        <li><span class="meta"><a class="glink" href="https://donellameadows.org/archives/dancing-with-systems/" target="_blank" rel="noopener">Dancing with Systems</a><em>Donella Meadows</em></span><span class="tag">ensaio</span></li>
+        <li><span class="meta"><a class="glink" href="https://www.goodreads.com/book/show/40733157-the-social-photo" target="_blank" rel="noopener">The Social Photo: On Photography and Social Media</a><em>Nathan Jurgenson</em></span><span class="tag">livro</span></li>
+        <li><span class="meta"><a class="glink" href="https://www.goodreads.com/book/show/123723946-la-mala-costumbre" target="_blank" rel="noopener">La mala costumbre</a><em>Alana S. Portero</em></span><span class="tag">livro</span></li>
+        <li><span class="meta"><a class="glink" href="https://www.goodreads.com/book/show/34890015-factfulness" target="_blank" rel="noopener">Factfulness</a><em>Hans Rosling</em></span><span class="tag">livro</span></li>
+        <li><span class="meta"><a class="glink" href="https://www.goodreads.com/review/list/195211804" target="_blank" rel="noopener">Toxic: Mulheres, fama e a misoginia dos anos 2000</a></span><span class="tag">livro</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <h2>Vamos trabalhar juntos?</h2>
+      <p><a class="glink" href="mailto:guilhermecaselani@icloud.com">guilhermecaselani@icloud.com</a> · <a class="glink" href="tel:+34663108363">+34 663 108 363</a></p>
+    </div>
+    <p><a class="glink" href="https://www.linkedin.com/in/guilhermecaselani/" target="_blank" rel="noopener">LinkedIn</a> · Madrid, Espanha (GMT+1)</p>
+  </div>
+</footer>
+
+<div id="pop" role="dialog" aria-modal="false"><div class="pop-title" id="pop-title"></div><div id="pop-info"></div></div>
+<div id="toast" role="status"></div>
+
+<script>
+  /* ============ TEMA ============ */
+  const root=document.documentElement;
+  function getSaved(){try{return localStorage.getItem('theme')}catch(e){return null}}
+  function save(t){try{localStorage.setItem('theme',t)}catch(e){}}
+  function applyTheme(t){root.setAttribute('data-theme',t)}
+  applyTheme(getSaved() || (window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));
+  document.getElementById('themeBtn').addEventListener('click',()=>{
+    const next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    applyTheme(next);save(next);
+  });
+
+  /* ============ IDIOMA (carrossel na intro) ============ */
+  const introTitles={
+    pt:'Navegue pela minha vida e trabalho',
+    en:'Sail through my life and work',
+    es:'Navega por mi vida y mi trabajo'
+  };
+  const startLabels={pt:'Começar',en:'Start',es:'Empezar'};
+  const introTitleEl=document.getElementById('introTitle');
+  const startBtn=document.getElementById('startBtn');
+  let carousel=null, carIdx=0, chosen=false;
+  const order=['pt','en','es'];
+
+  function paintIntro(lang){
+    introTitleEl.classList.add('swap');
+    setTimeout(()=>{
+      introTitleEl.querySelector('span').textContent=introTitles[lang];
+      startBtn.textContent=startLabels[lang];
+      introTitleEl.classList.remove('swap');
+    },380);
+  }
+  function startCarousel(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){paintIntro('pt');return}
+    carousel=setInterval(()=>{
+      if(chosen)return;
+      carIdx=(carIdx+1)%order.length;
+      paintIntro(order[carIdx]);
+    },2600);
+  }
+  startCarousel();
+
+  function chooseLang(lang){
+    chosen=true;
+    if(carousel)clearInterval(carousel);
+    paintIntro(lang);
+    // marca botões (intro + nav)
+    document.querySelectorAll('.intro-lang button,.lang button').forEach(b=>{
+      b.setAttribute('aria-pressed',String(b.dataset.lang===lang));
+    });
+    if(lang!=='pt') showToast(lang==='en'?'Full English version coming soon.':'Versión completa en español muy pronto.');
+  }
+  document.querySelectorAll('.intro-lang button').forEach(b=>{
+    b.addEventListener('click',()=>chooseLang(b.dataset.lang));
+  });
+  document.querySelectorAll('.lang button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      chosen=true;if(carousel)clearInterval(carousel);
+      document.querySelectorAll('.intro-lang button,.lang button').forEach(x=>{
+        x.setAttribute('aria-pressed',String(x.dataset.lang===b.dataset.lang));
+      });
+      if(b.dataset.lang!=='pt') showToast(b.dataset.lang==='en'?'Full English version coming soon.':'Versión completa en español muy pronto.');
+    });
+  });
+
+  /* ============ INTRO ============ */
+  const intro=document.getElementById('intro');
+  startBtn.addEventListener('click',()=>{
+    intro.classList.add('gone');
+    if(carousel)clearInterval(carousel);
+    setTimeout(()=>intro.remove(),700);
+  });
+
+  /* ============ TOAST ============ */
+  const toast=document.getElementById('toast');
+  let toastTimer;
+  function showToast(msg){
+    toast.textContent=msg;toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(()=>toast.classList.remove('show'),2600);
+  }
+
+  /* ============ VIEWS ============ */
+  const views={map:'view-map',trabalho:'view-trabalho',fotografia:'view-fotografia',recomendacoes:'view-recomendacoes'};
+  function showView(key){
+    closePop(true);
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('visible'));
+    document.getElementById(views[key]||views.map).classList.add('visible');
+    window.scrollTo({top:0});
+  }
+
+  /* ============ MENU ============ */
+  const menuBtn=document.getElementById('menuBtn');
+  const menuPanel=document.getElementById('menuPanel');
+  function toggleMenu(open){
+    const isOpen=open??!menuPanel.classList.contains('open');
+    menuPanel.classList.toggle('open',isOpen);
+    menuBtn.setAttribute('aria-expanded',String(isOpen));
+  }
+  menuBtn.addEventListener('click',e=>{e.stopPropagation();toggleMenu()});
+  document.addEventListener('click',e=>{
+    if(menuPanel.classList.contains('open')&&!menuPanel.contains(e.target))toggleMenu(false);
+  });
+  document.querySelectorAll('[data-goto]').forEach(el=>{
+    el.addEventListener('click',e=>{
+      e.preventDefault();toggleMenu(false);
+      const key=el.dataset.goto;
+      if(key==='fotografia'){
+        toggleMenu(false);
+        showToast('Página de Fotografia em construção — em breve!');
+        return;
+      }
+      if(key==='sobre'){
+        showView('map');
+        setTimeout(()=>{
+          const isl=[...document.querySelectorAll('.island[data-key="sobre"]')]
+            .find(el=>el.getBoundingClientRect().width>0);
+          if(isl){
+            isl.scrollIntoView({behavior:'smooth',block:'center'});
+            setTimeout(()=>activate(isl),350);
+          }
+        },80);
+        return;
+      }
+      showView(key);
+    });
+  });
+
+  /* ============ POPUP ============ */
+  const pop=document.getElementById('pop');
+  const popTitle=document.getElementById('pop-title');
+  const popInfo=document.getElementById('pop-info');
+  let popPersistent=false;
+  function openPop(el,{persistent=false}={}){
+    popTitle.textContent=el.dataset.popupTitle||'';
+    if(el.dataset.popupHtml){
+      popInfo.innerHTML=el.dataset.popupHtml;
+    }else{
+      popInfo.textContent=el.dataset.popupInfo||'';
+    }
+    if(persistent&&el.dataset.popupLink){
+      popInfo.textContent+=' ';
+      const a=document.createElement('a');
+      a.href='#';a.className='glink';a.textContent=el.dataset.popupLink;
+      const goto=el.dataset.popupGoto;
+      a.addEventListener('click',e=>{e.preventDefault();closePop(true);showView(goto)});
+      popInfo.appendChild(a);
+    }
+    pop.classList.toggle('wide',el.dataset.popupWide==='1');
+    pop.classList.add('show');popPersistent=persistent;
+    const r=el.getBoundingClientRect();
+    const pw=Math.min(el.dataset.popupWide==='1'?380:300,window.innerWidth-32);
+    let x=r.left+r.width/2-pw/2, y=r.bottom+10;
+    if(x+pw>window.innerWidth-16) x=window.innerWidth-16-pw;
+    if(x<16) x=16;
+    pop.style.left=x+'px';pop.style.top=y+'px';
+    const ph=pop.offsetHeight;
+    if(y+ph>window.innerHeight-16){pop.style.top=(r.top-ph-10)+'px'}
+  }
+  function closePop(force=false){
+    if(popPersistent&&!force)return;
+    pop.classList.remove('show');popPersistent=false;
+  }
+  document.addEventListener('click',e=>{
+    if(pop.classList.contains('show')&&!pop.contains(e.target)&&!e.target.closest('.island')) closePop(true);
+  });
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePop(true);toggleMenu(false)}});
+  window.addEventListener('scroll',()=>closePop(true),{passive:true});
+
+  /* ============ BARCO-CURSOR ============ */
+  const boat=document.getElementById('boat');
+  const sea=document.getElementById('sea');
+  const svg=document.getElementById('mapSvg');
+  const finePointer=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let boatX=650,boatY=660,lastX=650;
+
+  function svgPoint(clientX,clientY){
+    const pt=svg.createSVGPoint();pt.x=clientX;pt.y=clientY;
+    const m=svg.getScreenCTM();
+    if(!m)return{x:boatX,y:boatY};
+    const p=pt.matrixTransform(m.inverse());
+    return{x:p.x,y:p.y};
+  }
+  function setBoat(x,y,flip){
+    boat.setAttribute('transform',`translate(${x},${y})${flip?' scale(-1,1)':''}`);
+  }
+  setBoat(boatX,boatY,false);
+
+  let overIsland=false;
+  if(finePointer){
+    sea.classList.add('boat-cursor');
+    boat.classList.remove('idle'); // sem bob quando é cursor; segue o mouse
+    sea.addEventListener('pointermove',e=>{
+      // se está sobre uma ilha, o barco some e a bolinha rosa assume
+      const onIsland=!!e.target.closest('.island');
+      if(onIsland!==overIsland){
+        overIsland=onIsland;
+        boat.classList.toggle('hidden',onIsland);
+      }
+      if(onIsland)return; // não move o barco escondido
+      const p=svgPoint(e.clientX,e.clientY);
+      const flip=p.x<lastX-0.5;
+      lastX=p.x;boatX=p.x;boatY=p.y;
+      setBoat(p.x,p.y,flip);
+    });
+    sea.addEventListener('pointerleave',()=>{
+      // volta a boiar num canto quando o mouse sai do mar
+      overIsland=false;boat.classList.remove('hidden');
+      boat.classList.add('idle');setBoat(650,660,false);lastX=650;
+    });
+    sea.addEventListener('pointerenter',()=>boat.classList.remove('idle'));
+  }
+  // no mobile/touch: barco fica boiando decorativo
+  if(!finePointer){setBoat(650,660,false)}
+
+  /* ============ ILHAS ============ */
+  function activate(isl){
+    isl.classList.remove('clicked');
+    void isl.getBoundingClientRect();
+    isl.classList.add('clicked');
+    openPop(isl,{persistent:true});
+  }
+  document.querySelectorAll('.island').forEach(isl=>{
+    isl.addEventListener('click',()=>activate(isl));
+    // duplo clique nas ilhas com página → vai direto
+    isl.addEventListener('dblclick',()=>{
+      const goto=isl.dataset.popupGoto;
+      if(goto==='fotografia'){showToast('Página de Fotografia em construção — em breve!');return}
+      if(goto){closePop(true);showView(goto)}
+    });
+    isl.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();activate(isl)}
+    });
+    isl.addEventListener('mouseenter',()=>{if(!popPersistent)openPop(isl)});
+    isl.addEventListener('mouseleave',()=>closePop());
+  });
+
+  document.getElementById('cvBtn').addEventListener('click',()=>{
+    showToast('Aqui abre o CV em PDF (na versão final).');
+  });
+</script>
+
+</body>
+</html>
