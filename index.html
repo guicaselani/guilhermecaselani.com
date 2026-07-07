@@ -351,6 +351,10 @@
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
   @media(max-width:820px){.tagline{display:none}}
+  @media(max-width:480px){
+    .nav-inner{flex-wrap:wrap;row-gap:10px}
+    .nav-right{flex-basis:100%;justify-content:flex-end}
+  }
 
   /* ============ MAPA RESPONSIVO ============ */
   .map-mobile{display:none}
@@ -580,10 +584,10 @@
   </defs>
 
   <g class="waves" aria-hidden="true">
-    <path d="M60,430 q10,-8 20,0 q10,8 20,0"/>
-    <path d="M380,560 q10,-8 20,0 q10,8 20,0"/>
-    <path d="M70,880 q10,-8 20,0 q10,8 20,0"/>
-    <path d="M395,1160 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M60,379 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M395,600 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M385,788 q10,-8 20,0 q10,8 20,0"/>
+    <path d="M70,1200 q10,-8 20,0 q10,8 20,0"/>
     <path d="M60,1520 q10,-8 20,0 q10,8 20,0"/>
     <path d="M385,1720 q10,-8 20,0 q10,8 20,0"/>
   </g>
@@ -595,10 +599,27 @@
     <text x="0" y="-32" text-anchor="middle">N</text>
   </g>
 
-  <text class="region" x="150" y="118" text-anchor="middle" aria-hidden="true">Formação</text>
+  <!-- Sobre -->
+  <g transform="translate(-297.5,-518.75) scale(1.25)">
+    <g class="island" data-key="sobre" tabindex="0" role="button"
+       aria-label="Sobre — quem sou"
+       data-popup-wide="1"
+       data-popup-title="Oi! Sou o Gui."
+       data-popup-html="&lt;p&gt;Nasci e cresci no interior do Brasil e atualmente vivo em Madrid. Eu estou entre o marketing, o design, a estratégia e os negócios. Acredito que há um futuro melhor através da colaboração, lateralidade, transparência, diversidade e, claro, da comunicação.&lt;/p&gt;&lt;p style='margin-top:8px'&gt;&lt;strong&gt;Meu trabalho é aplicar isso construindo, criando e gerindo projetos e equipes.&lt;/strong&gt;&lt;/p&gt;&lt;p style='margin-top:8px'&gt;&lt;em&gt;Depois das 6, me encontre lendo em um parque, escutando música com meus amigos ou fotografando na rua.&lt;/em&gt;&lt;/p&gt;">
+      <text x="430" y="503" text-anchor="middle">Sobre</text>
+      <path class="land" d="M320,610 C300,580 320,545 365,538 C405,532 465,540 505,558 C545,576 555,608 530,632 C505,656 445,662 395,652 C355,644 335,633 320,610 Z"/>
+      <path class="cont" d="M348,606 C334,585 348,560 382,555 C412,551 458,557 488,570 C518,583 525,606 507,624 C489,642 444,647 406,639 C376,633 359,623 348,606 Z"/>
+      <g class="mark" aria-hidden="true">
+        <circle class="fillpink nostroke" cx="427" cy="583" r="5.5"/>
+        <path class="fillpink nostroke" d="M427,590 C420,590 416,595 416,603 L421,603 L421,612 L433,612 L433,603 L438,603 C438,595 434,590 427,590 Z"/>
+      </g>
+    </g>
+  </g>
+
+  <text class="region" x="150" y="449" text-anchor="middle" aria-hidden="true">Formação</text>
 
   <!-- Formação: mesmo cluster do desktop, transformado -->
-  <g transform="translate(-256.8,-6) scale(1.15)">
+  <g transform="translate(-256.8,325) scale(1.15)">
     <g class="island" data-key="graduacao" tabindex="0" role="button"
        aria-label="Graduação — ESPM, Porto Alegre"
        data-popup-title="Graduação"
@@ -635,7 +656,7 @@
   </g>
 
   <!-- barquinho decorativo -->
-  <g class="boat idle" transform="translate(88,470)" aria-hidden="true">
+  <g class="boat idle" transform="translate(88,788)" aria-hidden="true">
     <g class="boatInner">
       <line class="mast" x1="0" y1="-34" x2="0" y2="0" stroke-width="2"/>
       <path class="sail" d="M2,-32 C16,-24 20,-12 18,-2 L2,-2 Z"/>
@@ -645,7 +666,7 @@
   </g>
 
   <!-- Trabalho -->
-  <g transform="translate(-716.4,170) scale(1.2)">
+  <g transform="translate(-716.4,504.9) scale(1.2)">
     <g class="island" data-key="trabalho" tabindex="0" role="button"
        aria-label="Trabalho — trajetória e superpoderes"
        data-popup-wide="1"
@@ -662,23 +683,6 @@
         <path class="fillpink nostroke" d="M800,366 L818,371 L800,377 Z"/>
       </g>
       <text x="795" y="290" text-anchor="middle">Trabalho</text>
-    </g>
-  </g>
-
-  <!-- Sobre -->
-  <g transform="translate(-297.5,241.25) scale(1.25)">
-    <g class="island" data-key="sobre" tabindex="0" role="button"
-       aria-label="Sobre — quem sou"
-       data-popup-wide="1"
-       data-popup-title="Oi! Sou o Gui."
-       data-popup-html="&lt;p&gt;Nasci e cresci no interior do Brasil e atualmente vivo em Madrid. Eu estou entre o marketing, o design, a estratégia e os negócios. Acredito que há um futuro melhor através da colaboração, lateralidade, transparência, diversidade e, claro, da comunicação.&lt;/p&gt;&lt;p style='margin-top:8px'&gt;&lt;strong&gt;Meu trabalho é aplicar isso construindo, criando e gerindo projetos e equipes.&lt;/strong&gt;&lt;/p&gt;&lt;p style='margin-top:8px'&gt;&lt;em&gt;Depois das 6, me encontre lendo em um parque, escutando música com meus amigos ou fotografando na rua.&lt;/em&gt;&lt;/p&gt;">
-      <path class="land" d="M320,610 C300,580 320,545 365,538 C405,532 465,540 505,558 C545,576 555,608 530,632 C505,656 445,662 395,652 C355,644 335,633 320,610 Z"/>
-      <path class="cont" d="M348,606 C334,585 348,560 382,555 C412,551 458,557 488,570 C518,583 525,606 507,624 C489,642 444,647 406,639 C376,633 359,623 348,606 Z"/>
-      <g class="mark" aria-hidden="true">
-        <circle class="fillpink nostroke" cx="427" cy="583" r="5.5"/>
-        <path class="fillpink nostroke" d="M427,590 C420,590 416,595 416,603 L421,603 L421,612 L433,612 L433,603 L438,603 C438,595 434,590 427,590 Z"/>
-      </g>
-      <text x="430" y="700" text-anchor="middle">Sobre</text>
     </g>
   </g>
 
@@ -837,6 +841,13 @@
 <div id="toast" role="status"></div>
 
 <script>
+  /* ============ TROCA DE IDIOMA SEM VOLTAR À INTRO ============ */
+  const skipIntro = location.hash === '#skip-intro';
+  if(skipIntro){
+    document.getElementById('intro').style.display = 'none';
+    history.replaceState(null,'',location.pathname + location.search);
+  }
+
   /* ============ TEMA ============ */
   const root=document.documentElement;
   function getSaved(){try{return localStorage.getItem('theme')}catch(e){return null}}
@@ -876,7 +887,7 @@
       paintIntro(order[carIdx]);
     },2600);
   }
-  startCarousel();
+  if(!skipIntro) startCarousel();
 
   function chooseLang(lang){
     chosen=true;
@@ -893,8 +904,8 @@
   });
   document.querySelectorAll('.lang button').forEach(b=>{
     b.addEventListener('click',()=>{
-      if(b.dataset.lang==='en') window.location.href='en/index.html';
-      if(b.dataset.lang==='es') window.location.href='es/index.html';
+      if(b.dataset.lang==='en') window.location.href='en/index.html#skip-intro';
+      if(b.dataset.lang==='es') window.location.href='es/index.html#skip-intro';
     });
   });
 
