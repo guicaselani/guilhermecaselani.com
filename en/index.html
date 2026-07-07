@@ -865,8 +865,8 @@
   document.querySelectorAll('.intro-lang button,.lang button').forEach(b=>{
     b.addEventListener('click',()=>{
       if(b.dataset.lang==='en') return;
-      if(b.dataset.lang==='pt') window.location.href='../index.html#skip-intro';
-      if(b.dataset.lang==='es') window.location.href='../es/index.html#skip-intro';
+      if(b.dataset.lang==='pt') window.location.href='../#skip-intro';
+      if(b.dataset.lang==='es') window.location.href='../es/#skip-intro';
     });
   });  /* ============ INTRO ============ */
   const intro=document.getElementById('intro');

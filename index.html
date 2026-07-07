@@ -904,16 +904,16 @@
   });
   document.querySelectorAll('.lang button').forEach(b=>{
     b.addEventListener('click',()=>{
-      if(b.dataset.lang==='en') window.location.href='en/index.html#skip-intro';
-      if(b.dataset.lang==='es') window.location.href='es/index.html#skip-intro';
+      if(b.dataset.lang==='en') window.location.href='en/#skip-intro';
+      if(b.dataset.lang==='es') window.location.href='es/#skip-intro';
     });
   });
 
   /* ============ INTRO ============ */
   const intro=document.getElementById('intro');
   startBtn.addEventListener('click',()=>{
-    if(selectedLang==='en'){window.location.href='en/index.html';return}
-    if(selectedLang==='es'){window.location.href='es/index.html';return}
+    if(selectedLang==='en'){window.location.href='en/';return}
+    if(selectedLang==='es'){window.location.href='es/';return}
     intro.classList.add('gone');
     if(carousel)clearInterval(carousel);
     setTimeout(()=>intro.remove(),700);
