@@ -258,12 +258,13 @@
   .timeline{list-style:none}
   .timeline li{
     padding:13px 0;border-bottom:1px solid var(--line);
-    display:grid;grid-template-columns:92px 1fr;gap:16px;align-items:baseline;
+    display:grid;grid-template-columns:140px 1fr;gap:16px;align-items:start;
   }
   .timeline li:last-child{border-bottom:none}
-  .timeline .yr{font-family:var(--mono);font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums}
-  .timeline .role{font-size:15.5px}
-  .timeline .org{color:var(--gray)}
+  .timeline .yr{font-family:var(--mono);font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums;padding-top:2px}
+  .timeline .role{font-size:15.5px;display:block}
+  .timeline .org{color:var(--gray);display:block;margin-top:2px}
+  .timeline .desc{display:block;margin-top:8px;font-size:14px;color:var(--gray);line-height:1.6}
   .clients{margin-top:26px;font-size:15px;color:var(--gray)}
   .clients strong{color:var(--ink);font-weight:500}
 
@@ -381,8 +382,8 @@
 
 <div id="intro">
   <h2>Guilherme Caselani</h2>
-  <h1 id="introTitle"><span>Faço projetos de comunicação saírem do papel</span></h1>
-  <p class="intro-sub" id="introSub">estratégia, gestão de contas e liderança criativa</p>
+  <h1 id="introTitle"><span>Navegue pela minha vida e trabalho</span></h1>
+  <p class="intro-sub" id="introSub">Faço projetos de comunicação saírem do papel — estratégia, gestão de contas e liderança criativa.</p>
   <div class="start-wrap">
     <button id="startBtn">Começar</button>
     <div class="intro-lang" role="group" aria-label="Idioma">
@@ -401,7 +402,7 @@
       </button>
       <div class="brand-group">
         <button class="brand" data-goto="map">Guilherme Caselani</button>
-        <span class="tagline">Faço projetos de comunicação saírem do papel — estratégia, gestão de contas e liderança criativa.</span>
+        <span class="tagline">Navegue pela minha vida e trabalho</span>
       </div>
     </div>
     <div class="nav-right">
@@ -756,11 +757,12 @@
     <p class="eyebrow">Trajetória</p>
     <ul class="timeline">
       <li><span class="yr">2025–26</span><span class="role">MA Creativity &amp; Design Leadership <span class="org">— ELISAVA, Madrid</span></span></li>
-      <li><span class="yr">2024–25</span><span class="role">Account Manager, Divisão de Influência <span class="org">— EYXO</span></span></li>
-      <li><span class="yr">2022–24</span><span class="role">Account Executive, time dedicado Didi Global <span class="org">— EYXO</span></span></li>
-      <li><span class="yr">2021</span><span class="role">Account Assistant <span class="org">— W3 Haus (O Boticário)</span></span></li>
-      <li><span class="yr">2020–21</span><span class="role">Agile Project Intern <span class="org">— Renner S.A.</span></span></li>
-      <li><span class="yr">2019–20</span><span class="role">ESPM Junior Agency <span class="org">— ESPM, Porto Alegre</span></span></li>
+      <li><span class="yr">Set 2024 – Nov 2025</span><span class="role">Account Manager — Divisão de Influência<span class="org">EYXO Creative Strategies · Porto Alegre</span><span class="desc">Liderei o time de influência da empresa em projetos para Mondelez, Didi Global, Haleon e Tecban. Coordenação de equipes operacionais e squads de influenciadores; apresentações de relatórios de performance para clientes e stakeholders.</span></span></li>
+      <li><span class="yr">Jan 2023 – Ago 2024</span><span class="role">Account Executive II — Time dedicado Didi Global<span class="org">EYXO Creative Strategies · Porto Alegre</span><span class="desc">Gerenciei campanhas 360° e lançamentos de produto para o app Didi Global no Brasil. Supervisão de squads criativos, acompanhamento de KPIs, gestão do backlog de comunicação in-app, atuando nas dependências do cliente.</span></span></li>
+      <li><span class="yr">Jan 2022 – Dez 2022</span><span class="role">Account Executive<span class="org">EYXO Creative Strategies · Porto Alegre</span><span class="desc">Atendimento ao cliente no dia a dia e coordenação com equipes internas para Didi Global, garantindo entregas no prazo e execução operacional.</span></span></li>
+      <li><span class="yr">Abr 2021 – Dez 2021</span><span class="role">Account Assistant<span class="org">W3 Haus · Porto Alegre</span><span class="desc">Gestão de conteúdo e execução de campanhas 360° para O Boticário.</span></span></li>
+      <li><span class="yr">Set 2020 – Mar 2021</span><span class="role">Agile Project Intern<span class="org">Renner S.A. · Porto Alegre</span><span class="desc">Metodologia ágil aplicada ao acompanhamento de projetos, comunicação interna e apresentações executivas.</span></span></li>
+      <li><span class="yr">Mar 2019 – Ago 2020</span><span class="role">Estagiário<span class="org">ESPM Junior Agency · Porto Alegre</span><span class="desc">Desenvolvimento de campanhas de marketing e conteúdo para redes sociais da ESPM.</span></span></li>
     </ul>
     <p class="clients"><strong>Com quem já trabalhei:</strong> 99/Didi · Mondelez Trident · Haleon · Tecban · O Boticário · Renner</p>
   </section>
@@ -868,14 +870,14 @@
 
   /* ============ IDIOMA (carrossel na intro) ============ */
   const introTitles={
-    pt:'Faço projetos de comunicação saírem do papel',
-    en:'I make communication projects happen',
-    es:'Hago que los proyectos de comunicación salgan del papel'
+    pt:'Navegue pela minha vida e trabalho',
+    en:'Sail through my life and work',
+    es:'Navega por mi vida y mi trabajo'
   };
   const introSubs={
-    pt:'estratégia, gestão de contas e liderança criativa',
-    en:'strategy, account management and creative leadership',
-    es:'estrategia, gestión de cuentas y liderazgo creativo'
+    pt:'Faço projetos de comunicação saírem do papel — estratégia, gestão de contas e liderança criativa.',
+    en:'I make communication projects happen — strategy, account management and creative leadership.',
+    es:'Hago que los proyectos de comunicación salgan del papel — estrategia, gestión de cuentas y liderazgo creativo.'
   };
   const startLabels={pt:'Começar',en:'Start',es:'Empezar'};
   const introTitleEl=document.getElementById('introTitle');

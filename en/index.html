@@ -259,12 +259,13 @@
   .timeline{list-style:none}
   .timeline li{
     padding:13px 0;border-bottom:1px solid var(--line);
-    display:grid;grid-template-columns:92px 1fr;gap:16px;align-items:baseline;
+    display:grid;grid-template-columns:140px 1fr;gap:16px;align-items:start;
   }
   .timeline li:last-child{border-bottom:none}
-  .timeline .yr{font-family:var(--mono);font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums}
-  .timeline .role{font-size:15.5px}
-  .timeline .org{color:var(--gray)}
+  .timeline .yr{font-family:var(--mono);font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums;padding-top:2px}
+  .timeline .role{font-size:15.5px;display:block}
+  .timeline .org{color:var(--gray);display:block;margin-top:2px}
+  .timeline .desc{display:block;margin-top:8px;font-size:14px;color:var(--gray);line-height:1.6}
   .clients{margin-top:26px;font-size:15px;color:var(--gray)}
   .clients strong{color:var(--ink);font-weight:500}
 
@@ -382,8 +383,8 @@
 
 <div id="intro">
   <h2>Guilherme Caselani</h2>
-  <h1 id="introTitle"><span>I make communication projects happen</span></h1>
-  <p class="intro-sub" id="introSub">strategy, account management and creative leadership</p>
+  <h1 id="introTitle"><span>Sail through my life and work</span></h1>
+  <p class="intro-sub" id="introSub">I make communication projects happen — strategy, account management and creative leadership.</p>
   <div class="start-wrap">
     <button id="startBtn">Start</button>
     <div class="intro-lang" role="group" aria-label="Idioma">
@@ -402,7 +403,7 @@
       </button>
       <div class="brand-group">
         <button class="brand" data-goto="map">Guilherme Caselani</button>
-        <span class="tagline">I make communication projects happen — strategy, account management and creative leadership.</span>
+        <span class="tagline">Sail through my life and work</span>
       </div>
     </div>
     <div class="nav-right">
@@ -754,14 +755,15 @@
     </ul>
   </section>
   <section class="page-sec">
-    <p class="eyebrow">Timeline</p>
+    <p class="eyebrow">Career</p>
     <ul class="timeline">
       <li><span class="yr">2025–26</span><span class="role">MA Creativity &amp; Design Leadership <span class="org">— ELISAVA, Madrid</span></span></li>
-      <li><span class="yr">2024–25</span><span class="role">Account Manager, Divisão de Influência <span class="org">— EYXO</span></span></li>
-      <li><span class="yr">2022–24</span><span class="role">Account Executive, time dedicado Didi Global <span class="org">— EYXO</span></span></li>
-      <li><span class="yr">2021</span><span class="role">Account Assistant <span class="org">— W3 Haus (O Boticário)</span></span></li>
-      <li><span class="yr">2020–21</span><span class="role">Agile Project Intern <span class="org">— Renner S.A.</span></span></li>
-      <li><span class="yr">2019–20</span><span class="role">ESPM Junior Agency <span class="org">— ESPM, Porto Alegre</span></span></li>
+      <li><span class="yr">Sep 2024 – Nov 2025</span><span class="role">Account Manager — Influencer Division<span class="org">EYXO Creative Strategies · Porto Alegre</span><span class="desc">Led the company's influencer team across projects for Mondelez, Didi Global, Haleon and Tecban. Coordination of operational teams and influencer squads; performance report presentations to clients and stakeholders.</span></span></li>
+      <li><span class="yr">Jan 2023 – Aug 2024</span><span class="role">Account Executive II — Didi Global dedicated team<span class="org">EYXO Creative Strategies · Porto Alegre</span><span class="desc">Managed 360° campaigns and product launches for the Didi Global app in Brazil. Supervision of creative squads, KPI monitoring, in-app communication backlog management, embedded at the client's office.</span></span></li>
+      <li><span class="yr">Jan 2022 – Dec 2022</span><span class="role">Account Executive<span class="org">EYXO Creative Strategies · Porto Alegre</span><span class="desc">Day-to-day client service and coordination with internal teams for Didi Global, ensuring timely delivery and operational execution.</span></span></li>
+      <li><span class="yr">Apr 2021 – Dec 2021</span><span class="role">Account Assistant<span class="org">W3 Haus · Porto Alegre</span><span class="desc">Content management and execution of 360° campaigns for O Boticário.</span></span></li>
+      <li><span class="yr">Sep 2020 – Mar 2021</span><span class="role">Agile Project Intern<span class="org">Renner S.A. · Porto Alegre</span><span class="desc">Agile methodology applied to project monitoring, internal communications and executive presentations.</span></span></li>
+      <li><span class="yr">Mar 2019 – Aug 2020</span><span class="role">Intern<span class="org">ESPM Junior Agency · Porto Alegre</span><span class="desc">Development of marketing campaigns and social media content for ESPM.</span></span></li>
     </ul>
     <p class="clients"><strong>Clients &amp; companies:</strong> 99/Didi · Mondelez Trident · Haleon · Tecban · O Boticário · Renner</p>
   </section>
